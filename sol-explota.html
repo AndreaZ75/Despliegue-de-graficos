@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>El Sol que Explota - p5.js</title>
+    <link rel="stylesheet" href="styleKT.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Proyecto: El Sol que Explota</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Portada</a></li>
+                <li><a href="teoria.html">Teoría</a></li>
+                <li><a href="dom-inspector.html">Inspector DOM</a></li>
+                <li><a href="muneco.html">Muñeco de Nieve</a></li>
+                <li><a href="muneco_brazos.html">Muñeco con Brazos</a></li>
+                <li><a href="cena.html">La Cena</a></li>
+                <li><a href="bucky.html">Dientes de Conejo</a></li>
+                <li><a href="rana.html">La Rana</a></li>
+                <li><a href="sol-explota.html" class="active">Sol que Explota</a></li>
+                <li><a href="nubes-separan.html">Nubes que se Separan</a></li>
+                <li><a href="estrella-fugaz.html">Estrella Fugaz</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="container">
+        <section class="card" style="text-align: center;">
+            <h2>Visualización en vivo</h2>
+            <div id="canvas-box" class="canvas-container"></div>
+        </section>
+    </main>
+    <script>
+        let leftX = 140;
+        let rightX = 260;
+        let sunRadius = 100;
+
+        function setup() {
+            let canvas = createCanvas(400, 400);
+            canvas.parent('canvas-box');
+            noStroke();
+        }
+        function draw() {
+            background(184, 236, 255);
+            
+            fill(255, 170, 0);
+            ellipse(200, 100, sunRadius, sunRadius);
+            
+            fill(255, 255, 255);
+            ellipse(leftX, 150, 126, 97);
+            ellipse(leftX + 62, 150, 70, 60);
+            ellipse(leftX - 62, 150, 70, 60);
+            
+            ellipse(rightX, 100, 126, 97);
+            ellipse(rightX + 62, 100, 70, 60);
+            ellipse(rightX - 62, 100, 70, 60);
+            
+            leftX--;
+            rightX++;
+            sunRadius += 2;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Estrella Fugaz - p5.js</title>
+    <link rel="stylesheet" href="styleKT.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Proyecto: Estrella Fugaz</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Portada</a></li>
+                <li><a href="teoria.html">Teoría</a></li>
+                <li><a href="dom-inspector.html">Inspector DOM</a></li>
+                <li><a href="muneco.html">Muñeco de Nieve</a></li>
+                <li><a href="muneco_brazos.html">Muñeco con Brazos</a></li>
+                <li><a href="cena.html">La Cena</a></li>
+                <li><a href="bucky.html">Dientes de Conejo</a></li>
+                <li><a href="rana.html">La Rana</a></li>
+                <li><a href="sol-explota.html">Sol que Explota</a></li>
+                <li><a href="nubes-separan.html">Nubes que se Separan</a></li>
+                <li><a href="estrella-fugaz.html" class="active">Estrella Fugaz</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="container">
+        <section class="card" style="text-align: center;">
+            <h2>Visualización en vivo</h2>
+            <div id="canvas-box" class="canvas-container"></div>
+        </section>
+    </main>
+    <script>
+        let xPos1 = 0;
+        let yPos1 = 0;
+        let xPos2 = 400;
+        let yPos2 = 50;
+
+        function setup() {
+            let canvas = createCanvas(400, 400);
+            canvas.parent('canvas-box');
+            noStroke();
+        }
+        function draw() {
+            background(29, 40, 115);
+            
+            fill(255, 255, 255);
+            ellipse(100, 80, 3, 3);
+            ellipse(300, 120, 4, 4);
+            ellipse(350, 300, 2, 2);
+            ellipse(80, 280, 3, 3);
+            ellipse(220, 50, 4, 4);
+            
+            // Estrella 1
+            fill(255, 242, 0);
+            triangle(xPos1 - 12, yPos1, xPos1 + 12, yPos1, xPos1, yPos1 - 20);
+            triangle(xPos1 - 12, yPos1, xPos1 + 12, yPos1, xPos1, yPos1 + 20);
+            triangle(xPos1, yPos1 - 12, xPos1, yPos1 + 12, xPos1 - 20, yPos1);
+            triangle(xPos1, yPos1 - 12, xPos1, yPos1 + 12, xPos1 + 20, yPos1);
+            fill(255, 255, 255);
+            ellipse(xPos1, yPos1, 10, 10);
+            
+            // Estrella 2 (Dirección contraria)
+            fill(0, 230, 255);
+            triangle(xPos2 - 10, yPos2, xPos2 + 10, yPos2, xPos2, yPos2 - 16);
+            triangle(xPos2 - 10, yPos2, xPos2 + 10, yPos2, xPos2, yPos2 + 16);
+            triangle(xPos2, yPos2 - 10, xPos2, yPos2 + 10, xPos2 - 16, yPos2);
+            triangle(xPos2, yPos2 - 10, xPos2, yPos2 + 10, xPos2 + 16, yPos2);
+            fill(255, 255, 255);
+            ellipse(xPos2, yPos2, 8, 8);
+            
+            xPos1 += 3;
+            yPos1 += 2;
+            if (xPos1 > 450) {
+                xPos1 = -20;
+                yPos1 = -20;
+            }
+            
+            xPos2 -= 2;
+            yPos2 += 1.5;
+            if (xPos2 < -20) {
+                xPos2 = 420;
+                yPos2 = 0;
+            }
+        }
+    </script>
+</body>
+</html>
